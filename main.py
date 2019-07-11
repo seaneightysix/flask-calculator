@@ -9,6 +9,10 @@ app = Flask(__name__)
 app.secret_key = b"\xd8r 'zb^4\x9c\xfc\x8e\x85\xa0\x1eg\xe0\xe1\x95\xceJSex\xaa"
 app.secret_key = os.environ.get('SECRET_KEY').encode()
 
+@app.route('/')
+def home():
+    return redirect(url_for('add'))
+
 @app.route('/add', methods=['GET', 'POST'])
 def add():
 
